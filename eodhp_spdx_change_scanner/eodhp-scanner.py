@@ -6,7 +6,6 @@ from pathlib import Path
 
 import boto3
 import botocore
-import pulsar
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +52,7 @@ class Scanner:
             self.s3_bucket_name = os.getenv("S3_BUCKET")
         if self.s3_bucket_name is None:
             raise KeyError("S3_BUCKET not set")
+        self.local_folder = args["dest"]
         self.repo_name = urllib.parse.urlparse(args["repourl"]).path.strip("/")
         self.s3_prefix = "/".join(["api/catalogue/licences/spdx"])
 
@@ -80,10 +80,10 @@ class Scanner:
                 try:  # s3 file exists and is updated
                     self.s3.Object(self.s3_bucket_name, s3_path).load()
                     update_file(local_path, s3_path, self.s3_bucket_name, self.s3)
-                    self.updated_files.append(s3_path)
+                    logging.info(f"File {file_name} updated")
                 except botocore.exceptions.ClientError:  # s3 file doesn't exist and is added
                     update_file(local_path, s3_path, self.s3_bucket_name, self.s3)
-                    self.added_files.append(s3_path)
+                    logging.info(f"File {file_name} added")
             else:  # s3 file is deleted
                 delete_file(s3_path, self.s3_bucket_name, self.s3)
-                self.deleted_files.append(s3_path)
+                logging.info(f"File {file_name} deleted")
