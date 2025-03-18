@@ -53,7 +53,9 @@ class Scanner:
             raise KeyError("S3_BUCKET not set")
         self.local_folder = args["dest"]
         self.repo_name = urllib.parse.urlparse(args["repourl"]).path.strip("/")
-        self.s3_prefix = "/".join([os.getenv("SPDX_LICENCE_PATH")])
+        self.s3_prefix = "/".join(
+            [os.getenv("SPDX_LICENCE_PATH", "api/catalogue/stac/licences/spdx")]
+        )
 
     def initialise_s3(self):
         if os.getenv("AWS_ACCESS_KEY") and os.getenv("AWS_SECRET_ACCESS_KEY"):
