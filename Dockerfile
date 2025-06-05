@@ -18,7 +18,7 @@ WORKDIR /eodhp-spdx-change-scanner
 ADD requirements.txt ./
 ADD pyproject.toml ./
 RUN --mount=type=cache,target=/root/.cache/pip pip3 install -r requirements.txt .
-RUN --mount=type=cache,target=/root/.cache/pip pip3 install "git+https://github.com/EO-DataHub/configscanning.git@feature/EODHP-992-Config-Scanning"
+RUN --mount=type=cache,target=/root/.cache/pip pip3 install "git+https://github.com/EO-DataHub/configscanning.git@v0.1.5"
 ADD eodhp_spdx_change_scanner ./eodhp_spdx_change_scanner/
 
 CMD python -m configscanning.git_change_scanner $1 $2
