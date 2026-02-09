@@ -1,0 +1,41 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Build artifacts
+build/
+dist/
+
+# Linting caches
+.ruff_cache/
+.mypy_cache/
+
+# Pre-commit config (fetched dynamically)
+.pre-commit-config.yaml
+
+# Misc
+*.bak
+.cache/
+.make-venv-installed
