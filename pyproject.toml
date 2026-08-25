@@ -14,7 +14,7 @@
 
 [project]
 name = "eodhp-spdx-change-scanner"
-version = "0.1.4"
+version = "0.1.6"
 description = "Collects and updates S3 buckets from GitHub repositories"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
@@ -36,9 +36,13 @@ classifiers = [
 dependencies = [
     "boto3",
     "botocore",
+    "configscanning",
     "pulsar-client",
     "requests>=2.32.0",
 ]
+
+[tool.uv.sources]
+configscanning = { git = "https://github.com/EO-DataHub/configscanning.git", tag = "v0.1.6" }
 
 [dependency-groups]
 dev = [

@@ -28,8 +28,5 @@ COPY . /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen
 
-# Install configscanning from GitHub
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv pip install "git+https://github.com/EO-DataHub/configscanning.git@v0.1.5"
 
 CMD ["uv", "run", "--no-sync", "python", "-m", "configscanning.git_change_scanner", "$1", "$2"]

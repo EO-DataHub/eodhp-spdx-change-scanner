@@ -5,7 +5,7 @@ Updates an S3 bucket from a GitHub repository
 ## Requirements
 
 - [uv](https://docs.astral.sh/uv/) package manager
-- Ensure that configscanning is installed
+- `configscanning` is installed by `uv sync` (declared in `pyproject.toml` under `[tool.uv.sources]`)
 
 ## Running
 
