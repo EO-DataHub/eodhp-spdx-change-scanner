@@ -28,5 +28,8 @@ COPY . /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen
 
+# Put the venv first on PATH so `python`/`python3` resolve to it even when the
+# k8s manifest overrides CMD and bypasses `uv run`.
+ENV PATH="/app/.venv/bin:$PATH"
 
 CMD ["uv", "run", "--no-sync", "python", "-m", "configscanning.git_change_scanner", "$1", "$2"]

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.7 (2026-08-27)
+- `ENV PATH="/app/.venv/bin:$PATH"` in the Dockerfile so the argocd CronJob's `python3 -m configscanning.git_change_scanner` command override resolves to the venv (0.1.6 failed in test with `ModuleNotFoundError: No module named 'configscanning'`).
+- configscanning bumped to v0.1.7, which uses `pygit2.enums.RepositoryOpenFlag` instead of the `GIT_*` constants removed in pygit2 1.20.0.
+
 ## v0.1.6 (2026-08-25)
 - configscanning declared in `pyproject.toml` (`[tool.uv.sources]`, tag v0.1.6) and locked in `uv.lock`; no longer installed ad hoc in the Dockerfile.
 
