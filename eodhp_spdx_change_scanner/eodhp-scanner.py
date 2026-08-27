@@ -1,11 +1,16 @@
+from __future__ import annotations
+
 import logging
 import os
 import urllib.parse
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import boto3
 import botocore.exceptions
-from mypy_boto3_s3 import S3ServiceResource
+
+if TYPE_CHECKING:
+    from mypy_boto3_s3 import S3ServiceResource
 
 logger = logging.getLogger(__name__)
 
