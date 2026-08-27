@@ -232,7 +232,7 @@ wheels = [
 [[package]]
 name = "configscanning"
 version = "0.1.0"
-source = { git = "https://github.com/EO-DataHub/configscanning.git?tag=v0.1.6#00f26d5489cb98c82181547b598532714c948710" }
+source = { git = "https://github.com/EO-DataHub/configscanning.git?tag=v0.1.7#a429d9d2f3a342bbf5d8b25f7a8e0073f2b70536" }
 dependencies = [
     { name = "boto3" },
     { name = "filelock" },
@@ -300,7 +300,7 @@ wheels = [
 
 [[package]]
 name = "eodhp-spdx-change-scanner"
-version = "0.1.6"
+version = "0.1.7"
 source = { virtual = "." }
 dependencies = [
     { name = "boto3" },
@@ -327,7 +327,7 @@ dev = [
 requires-dist = [
     { name = "boto3" },
     { name = "botocore" },
-    { name = "configscanning", git = "https://github.com/EO-DataHub/configscanning.git?tag=v0.1.6" },
+    { name = "configscanning", git = "https://github.com/EO-DataHub/configscanning.git?tag=v0.1.7" },
     { name = "pulsar-client" },
     { name = "requests", specifier = ">=2.32.0" },
 ]
