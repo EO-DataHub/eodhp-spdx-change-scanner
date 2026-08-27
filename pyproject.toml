@@ -14,7 +14,7 @@
 
 [project]
 name = "eodhp-spdx-change-scanner"
-version = "0.1.7"
+version = "0.1.8"
 description = "Collects and updates S3 buckets from GitHub repositories"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
